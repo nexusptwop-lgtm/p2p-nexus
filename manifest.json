@@ -1,0 +1,9 @@
+{
+    "name": "P2P Nexus",
+    "short_name": "P2P Nexus",
+    "description": "Decentralized P2P Exchange",
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#6a11cb",
+    "background_color": "#0f0f23"
+}
