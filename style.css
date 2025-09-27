@@ -122,3 +122,128 @@ h1 {
 .card, .feature {
     animation: fadeIn 0.6s ease-out;
 }
+/* Web3 Specific Styles */
+.wallet-details {
+    background: rgba(0, 180, 155, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    border: 1px solid rgba(0, 180, 155, 0.3);
+}
+
+.wallet-details p {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wallet-details strong {
+    color: #00b09b;
+}
+
+.reputation-badge {
+    background: linear-gradient(45deg, #00b09b, #96c93d);
+    color: #000;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.network-badge {
+    background: rgba(106, 17, 203, 0.2);
+    color: #6a11cb;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-size: 10px;
+    border: 1px solid rgba(106, 17, 203, 0.3);
+}
+
+.offer-details {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: #b0b0b0;
+    font-size: 14px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Modal styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #1a1a2e;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 500px;
+    width: 90%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+    .wallet-details p {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .offer-details {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .modal-content {
+        padding: 20px;
+        margin: 20px;
+    }
+}
+
+/* Animation improvements */
+.notification {
+    transition: opacity 0.3s ease;
+}
+
+.offer-card {
+    transition: all 0.3s ease;
+}
+
+.offer-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Loading states */
+.loading {
+    text-align: center;
+    padding: 20px;
+    color: #b0b0b0;
+    font-style: italic;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Success states */
+.success-flash {
+    animation: successFlash 0.5s ease;
+}
+
+@keyframes successFlash {
+    0% { background: var(--secondary-gradient); }
+    100% { background: var(--primary-gradient); }
+                                                   }
