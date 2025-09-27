@@ -1,4 +1,4 @@
-// P2P Nexus - Main JavaScript
+// P2P Nexus - Main JavaScript 
 console.log('🚀 P2P Nexus JavaScript loaded');
 
 class P2PNexus {
