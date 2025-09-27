@@ -247,3 +247,40 @@ h1 {
     0% { background: var(--secondary-gradient); }
     100% { background: var(--primary-gradient); }
                                                    }
+.wallet-status {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #f8f9fa;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    border: 1px solid #e9ecef;
+}
+
+.network-info {
+    font-size: 14px;
+}
+
+.offer-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    background: #f9f9f9;
+}
+
+.trade-btn {
+    background: #6a11cb;
+    color: white;
+    padding: 8px 16px;
+    margin-top: 10px;
+}
+
+.warning {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    padding: 15px;
+    border-radius: 5px;
+    color: #856404;
+}
