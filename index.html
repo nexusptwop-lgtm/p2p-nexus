@@ -18,8 +18,8 @@
         <div class="card">
             <h2>Welcome to P2P Nexus</h2>
             <p>Secure, decentralized peer-to-peer trading powered by Web3 technology.</p>
-            <button class="btn" onclick="connectWallet()">Connect Wallet</button>
-            <button class="btn" onclick="showDemo()">View Demo</button>
+            <button class="connect-wallet" </button>
+            <button class="show-demo" </button>
         </div>
         
         <div class="features">
@@ -52,36 +52,6 @@
         </footer>
     </div>
 
-    <script>
-        function connectWallet() {
-            alert('Wallet connection will be implemented with Web3 integration');
-        }
-        
-        function showDemo() {
-            const demoSection = document.getElementById('demoSection');
-            const offersList = document.getElementById('offersList');
-            
-            // Demo data
-            const offers = [
-                { token: 'ETH', amount: '0.1', price: '5000 RUB', method: 'SberBank' },
-                { token: 'USDT', amount: '1000', price: '90000 RUB', method: 'Tinkoff' },
-                { token: 'MATIC', amount: '500', price: '25000 RUB', method: 'Raiffeisen' }
-            ];
-            
-            offersList.innerHTML = offers.map(offer => `
-                <div style="border: 1px solid #333; padding: 15px; margin: 10px 0; border-radius: 8px;">
-                    <strong>${offer.amount} ${offer.token} ⇄ ${offer.price}</strong><br>
-                    <small>Payment method: ${offer.method}</small>
-                </div>
-            `).join('');
-            
-            demoSection.style.display = 'block';
-        }
-        
-        // Show demo automatically after 2 seconds
-        setTimeout(showDemo, 2000);
-        
-        console.log('P2P Nexus loaded successfully!');
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
