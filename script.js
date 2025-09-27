@@ -193,3 +193,24 @@ window.app = app;
 
 // Auto-show demo after 2 seconds
 setTimeout(() => app.showDemo(), 2000);
+
+// Web3 интеграция
+async connectWallet() {
+    if (typeof window.ethereum !== 'undefined') {
+        try {
+            // Запрашиваем подключение аккаунтов
+            const accounts = await window.ethereum.request({
+                method: 'eth_requestAccounts'
+            });
+            
+            this.userAddress = accounts[0];
+            this.showNotification('Wallet connected successfully!', 'success');
+            this.updateWalletDisplay();
+            
+        } catch (error) {
+            this.showNotification('Wallet connection failed', 'error');
+        }
+    } else {
+        this.showNotification('Please install MetaMask', 'warning');
+    }
+}
