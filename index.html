@@ -10,27 +10,36 @@
     <link rel="stylesheet" href="style.css">
     
     <!-- PWA Meta Tags -->
-<meta name="theme-color" content="#6a11cb">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="P2P Nexus">
+    <meta name="theme-color" content="#6a11cb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="P2P Nexus">
 
-<!-- PWA Manifest -->
-<link rel="manifest" href="manifest.json">
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
     <div class="container">
         <header>
             <h1>🎯 P2P Nexus</h1>
             <p class="tagline">Decentralized P2P Exchange</p>
-   
+            <!-- Добавляем статус кошелька в header -->
+            <div id="walletStatus" class="wallet-status">
+                <span id="walletInfo">Not connected</span>
+            </div>
         </header>
         
         <div class="card">
             <h2>Welcome to P2P Nexus</h2>
             <p>Secure, decentralized peer-to-peer trading powered by Web3 technology.</p>
-            <button class="btn connect-wallet">Connect Wallet</button>
-            <button class="btn show-demo">View Demo Offers</button>
+            <button id="connectWallet" class="btn connect-wallet">Connect Wallet</button>
+            <button id="showDemo" class="btn show-demo">View Demo Offers</button>
+            
+            <!-- Добавляем блок для информации о сети -->
+            <div id="networkInfo" class="network-info" style="display: none; margin-top: 15px; padding: 10px; background: #f5f5f5; border-radius: 5px;">
+                <p><strong>Network:</strong> <span id="networkName">Unknown</span></p>
+                <p><strong>Chain ID:</strong> <span id="chainId">-</span></p>
+            </div>
         </div>
         
         <div class="features">
