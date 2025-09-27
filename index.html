@@ -6,24 +6,217 @@
     <title>P2P Nexus - Decentralized P2P Exchange</title>
     <meta name="description" content="Secure P2P trading with Web3 technology">
     
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-    
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#6a11cb">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="P2P Nexus">
-
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="manifest.json">
+    
+    <style>
+        :root {
+            --primary: #6a11cb;
+            --primary-dark: #4d0a9e;
+            --secondary: #2575fc;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #28a745;
+            --danger: #dc3545;
+            --warning: #ffc107;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: var(--dark);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+        
+        .tagline {
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        
+        .wallet-status {
+            background: var(--light);
+            padding: 10px 15px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            border: 1px solid #e9ecef;
+            min-width: 200px;
+            text-align: center;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 10px 10px 10px 0;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background: #1a68e8;
+        }
+        
+        .btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .feature {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .network-info {
+            background: #f1f3f4;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .offer-card {
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            background: white;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 5px;
+            color: #856404;
+            margin: 15px 0;
+        }
+        
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            padding: 15px;
+            border-radius: 5px;
+            color: #155724;
+            margin: 15px 0;
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 30px;
+            opacity: 0.8;
+        }
+        
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .wallet-status {
+                margin-top: 15px;
+                min-width: auto;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🎯 P2P Nexus</h1>
-            <p class="tagline">Decentralized P2P Exchange</p>
-            <!-- Добавляем статус кошелька в header -->
+            <div>
+                <h1>🎯 P2P Nexus</h1>
+                <p class="tagline">Decentralized P2P Exchange</p>
+            </div>
             <div id="walletStatus" class="wallet-status">
                 <span id="walletInfo">Not connected</span>
             </div>
@@ -32,13 +225,14 @@
         <div class="card">
             <h2>Welcome to P2P Nexus</h2>
             <p>Secure, decentralized peer-to-peer trading powered by Web3 technology.</p>
-            <button id="connectWallet" class="btn connect-wallet">Connect Wallet</button>
-            <button id="showDemo" class="btn show-demo">View Demo Offers</button>
             
-            <!-- Добавляем блок для информации о сети -->
-            <div id="networkInfo" class="network-info" style="display: none; margin-top: 15px; padding: 10px; background: #f5f5f5; border-radius: 5px;">
+            <button id="connectWallet" class="btn">Connect Wallet</button>
+            <button id="showDemo" class="btn btn-secondary">View Demo Offers</button>
+            
+            <div id="networkInfo" class="network-info">
                 <p><strong>Network:</strong> <span id="networkName">Unknown</span></p>
                 <p><strong>Chain ID:</strong> <span id="chainId">-</span></p>
+                <p><strong>Account:</strong> <span id="fullAddress">-</span></p>
             </div>
         </div>
         
@@ -72,7 +266,313 @@
         </footer>
     </div>
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+    <script>
+        // P2P Nexus - Complete Web3 Integration
+        class P2PNexus {
+            constructor() {
+                this.isConnected = false;
+                this.currentAccount = null;
+                this.currentChainId = null;
+                this.isConnecting = false;
+                
+                this.init();
+            }
+
+            init() {
+                console.log("P2P Nexus initialized");
+                this.bindEvents();
+                this.checkWalletConnection();
+            }
+
+            bindEvents() {
+                // Кнопка подключения кошелька
+                document.getElementById('connectWallet').addEventListener('click', () => {
+                    this.connectWallet();
+                });
+
+                // Кнопка демо-офферов
+                document.getElementById('showDemo').addEventListener('click', () => {
+                    this.showDemoOffers();
+                });
+
+                // Слушаем события кошелька, если он доступен
+                if (typeof window.ethereum !== 'undefined') {
+                    // Смена аккаунта
+                    window.ethereum.on('accountsChanged', (accounts) => {
+                        this.handleAccountsChanged(accounts);
+                    });
+
+                    // Смена сети
+                    window.ethereum.on('chainChanged', (chainId) => {
+                        this.handleChainChanged(chainId);
+                    });
+                    
+                    // Событие подключения
+                    window.ethereum.on('connect', (connectInfo) => {
+                        console.log('Connected to chain:', connectInfo.chainId);
+                    });
+                }
+            }
+
+            async connectWallet() {
+                // Предотвращаем множественные нажатия
+                if (this.isConnecting) return;
+                
+                this.isConnecting = true;
+                this.updateButtonState();
+                
+                try {
+                    // Проверяем наличие MetaMask/TrustWallet
+                    if (typeof window.ethereum === 'undefined') {
+                        this.showError('Please install MetaMask or TrustWallet to use this dApp!');
+                        this.isConnecting = false;
+                        this.updateButtonState();
+                        return;
+                    }
+
+                    // Запрашиваем подключение
+                    const accounts = await window.ethereum.request({
+                        method: 'eth_requestAccounts'
+                    });
+
+                    if (accounts.length > 0) {
+                        this.currentAccount = accounts[0];
+                        this.isConnected = true;
+                        
+                        // Получаем информацию о сети
+                        const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+                        this.handleChainChanged(chainId);
+                        
+                        this.updateUI();
+                        this.showSuccess('Wallet connected successfully!');
+                        
+                        console.log('Wallet connected:', this.currentAccount);
+                    }
+                } catch (error) {
+                    console.error('Error connecting wallet:', error);
+                    
+                    if (error.code === 4001) {
+                        this.showError('Please connect your wallet to continue.');
+                    } else {
+                        this.showError('Error connecting wallet: ' + error.message);
+                    }
+                } finally {
+                    this.isConnecting = false;
+                    this.updateButtonState();
+                }
+            }
+
+            async checkWalletConnection() {
+                if (typeof window.ethereum !== 'undefined') {
+                    try {
+                        const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+                        if (accounts.length > 0) {
+                            this.currentAccount = accounts[0];
+                            this.isConnected = true;
+                            
+                            const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+                            this.handleChainChanged(chainId);
+                            
+                            this.updateUI();
+                        }
+                    } catch (error) {
+                        console.error('Error checking wallet connection:', error);
+                    }
+                }
+            }
+
+            handleAccountsChanged(accounts) {
+                if (accounts.length === 0) {
+                    // Пользователь отключил кошелек
+                    this.isConnected = false;
+                    this.currentAccount = null;
+                    this.showError('Wallet disconnected');
+                } else if (accounts[0] !== this.currentAccount) {
+                    // Сменился аккаунт
+                    this.currentAccount = accounts[0];
+                    this.showSuccess('Account changed');
+                }
+                this.updateUI();
+            }
+
+            handleChainChanged(chainId) {
+                // Нормализуем chainId (MetaMask возвращает hex, но иногда как число)
+                this.currentChainId = typeof chainId === 'number' ? '0x' + chainId.toString(16) : chainId;
+                this.updateNetworkInfo(this.currentChainId);
+            }
+
+            updateUI() {
+                const walletInfo = document.getElementById('walletInfo');
+                const connectBtn = document.getElementById('connectWallet');
+                const networkInfo = document.getElementById('networkInfo');
+
+                if (this.isConnected && this.currentAccount) {
+                    // Форматируем адрес для отображения
+                    const shortAddress = this.currentAccount.substring(0, 6) + '...' + this.currentAccount.substring(38);
+                    walletInfo.textContent = `Connected: ${shortAddress}`;
+                    walletInfo.style.color = 'var(--success)';
+                    
+                    connectBtn.textContent = 'Disconnect Wallet';
+                    connectBtn.onclick = () => this.disconnectWallet();
+                    
+                    networkInfo.style.display = 'block';
+                    
+                    // Показываем полный адрес в информации о сети
+                    document.getElementById('fullAddress').textContent = this.currentAccount;
+                } else {
+                    walletInfo.textContent = 'Not connected';
+                    walletInfo.style.color = 'var(--danger)';
+                    
+                    connectBtn.textContent = 'Connect Wallet';
+                    connectBtn.onclick = () => this.connectWallet();
+                    
+                    networkInfo.style.display = 'none';
+                }
+            }
+            
+            updateButtonState() {
+                const connectBtn = document.getElementById('connectWallet');
+                
+                if (this.isConnecting) {
+                    connectBtn.innerHTML = '<span class="loading"></span> Connecting...';
+                    connectBtn.disabled = true;
+                } else {
+                    connectBtn.disabled = false;
+                }
+            }
+
+            updateNetworkInfo(chainId) {
+                const networkName = document.getElementById('networkName');
+                const chainIdElement = document.getElementById('chainId');
+
+                chainIdElement.textContent = chainId;
+
+                // Определяем название сети по chainId
+                const networks = {
+                    '0x1': 'Ethereum Mainnet',
+                    '0x5': 'Goerli Testnet',
+                    '0xaa36a7': 'Sepolia Testnet',
+                    '0x89': 'Polygon Mainnet',
+                    '0x13881': 'Polygon Mumbai',
+                    '0x38': 'BSC Mainnet',
+                    '0x61': 'BSC Testnet',
+                    '0xa86a': 'Avalanche C-Chain',
+                    '0xa869': 'Avalanche Fuji'
+                };
+
+                networkName.textContent = networks[chainId] || 'Unknown Network';
+                networkName.style.color = networks[chainId] ? 'var(--success)' : 'var(--warning)';
+            }
+
+            disconnectWallet() {
+                this.isConnected = false;
+                this.currentAccount = null;
+                this.currentChainId = null;
+                this.updateUI();
+                this.showError('Wallet disconnected');
+            }
+
+            showDemoOffers() {
+                const offersList = document.getElementById('offersList');
+                
+                if (!this.isConnected) {
+                    offersList.innerHTML = `
+                        <div class="warning">
+                            <p>🔗 Please connect your wallet first to view offers</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // Демо-офферы
+                offersList.innerHTML = `
+                    <div class="offer-card">
+                        <h3>ETH to USDT</h3>
+                        <p><strong>Rate:</strong> 1 ETH = 2500 USDT</p>
+                        <p><strong>Limit:</strong> 0.1 - 5 ETH</p>
+                        <p><strong>Payment:</strong> Bank Transfer</p>
+                        <p><strong>Trader Reputation:</strong> ★★★★☆ (4.2/5)</p>
+                        <button class="btn trade-btn">Start Trade</button>
+                    </div>
+                    <div class="offer-card">
+                        <h3>USDT to ETH</h3>
+                        <p><strong>Rate:</strong> 1 USDT = 0.0004 ETH</p>
+                        <p><strong>Limit:</strong> 100 - 5000 USDT</p>
+                        <p><strong>Payment:</strong> Wise/Revolut</p>
+                        <p><strong>Trader Reputation:</strong> ★★★★★ (4.8/5)</p>
+                        <button class="btn trade-btn">Start Trade</button>
+                    </div>
+                    <div class="offer-card">
+                        <h3>BTC to ETH</h3>
+                        <p><strong>Rate:</strong> 1 BTC = 15 ETH</p>
+                        <p><strong>Limit:</strong> 0.01 - 0.5 BTC</p>
+                        <p><strong>Payment:</strong> PayPal</p>
+                        <p><strong>Trader Reputation:</strong> ★★★☆☆ (3.5/5)</p>
+                        <button class="btn trade-btn">Start Trade</button>
+                    </div>
+                `;
+
+                // Добавляем обработчики для кнопок торговли
+                document.querySelectorAll('.trade-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const offerTitle = e.target.closest('.offer-card').querySelector('h3').textContent;
+                        this.showSuccess(`Trade initiated for: ${offerTitle}`);
+                    });
+                });
+            }
+            
+            showError(message) {
+                // Создаем временное уведомление об ошибке
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'warning';
+                errorDiv.innerHTML = `<p>❌ ${message}</p>`;
+                errorDiv.style.position = 'fixed';
+                errorDiv.style.top = '20px';
+                errorDiv.style.right = '20px';
+                errorDiv.style.zIndex = '1000';
+                errorDiv.style.maxWidth = '300px';
+                
+                document.body.appendChild(errorDiv);
+                
+                // Удаляем уведомление через 5 секунд
+                setTimeout(() => {
+                    if (errorDiv.parentNode) {
+                        errorDiv.parentNode.removeChild(errorDiv);
+                    }
+                }, 5000);
+            }
+            
+            showSuccess(message) {
+                // Создаем временное уведомление об успехе
+                const successDiv = document.createElement('div');
+                successDiv.className = 'success';
+                successDiv.innerHTML = `<p>✅ ${message}</p>`;
+                successDiv.style.position = 'fixed';
+                successDiv.style.top = '20px';
+                successDiv.style.right = '20px';
+                successDiv.style.zIndex = '1000';
+                successDiv.style.maxWidth = '300px';
+                
+                document.body.appendChild(successDiv);
+                
+                // Удаляем уведомление через 5 секунд
+                setTimeout(() => {
+                    if (successDiv.parentNode) {
+                        successDiv.parentNode.removeChild(successDiv);
+                    }
+                }, 5000);
+            }
+        }
+
+        // Инициализация приложения когда DOM загружен
+        document.addEventListener('DOMContentLoaded', () => {
+            window.p2pNexus = new P2PNexus();
+        });
+
+        // Обработчик глобальных ошибок
+        window.addEventListener('error', (event) => {
+            console.error('Global error:', event.error);
+        });
+    </script>
 </body>
 </html>
