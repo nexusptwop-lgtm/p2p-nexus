@@ -1,0 +1,77 @@
+.file-item {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.file-item:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.file-item.selected {
+    border-color: var(--primary-color);
+    background: rgba(108, 99, 255, 0.05);
+}
+
+.file-icon {
+    font-size: 2rem;
+    margin-right: 1rem;
+    color: var(--primary-color);
+}
+
+.file-info {
+    flex: 1;
+}
+
+.file-name {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.file-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: var(--gray-dark);
+}
+
+.file-cid {
+    font-family: monospace;
+    background: var(--gray-light);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.file-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.file-detail-item {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: var(--gray-light);
+    border-radius: 8px;
+}
+
+.file-detail-label {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: var(--gray-dark);
+}
+
+.file-detail-value {
+    word-break: break-all;
+}
+
+.detail-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
