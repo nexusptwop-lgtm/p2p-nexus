@@ -58,3 +58,29 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 **Built with ❤️ for the Web3 community**
+# Nexus P2P IPFS Interface
+
+A modern web interface for interacting with IPFS (InterPlanetary File System) with both browser node and HTTP client support.
+
+## Features
+
+- 🚀 **Dual Mode Operation**: Browser IPFS node or HTTP client to external node
+- 📁 **File Management**: Upload, download, pin, and manage files on IPFS
+- 🔍 **Search & Filter**: Find files by name or CID
+- 📊 **Network Monitoring**: Real-time peer and bandwidth statistics
+- 🎨 **Modern UI**: Clean, responsive interface with drag & drop support
+- 💾 **Local Storage**: Persist file metadata between sessions
+
+## Quick Start
+
+### Prerequisites
+- Node.js 16+ 
+- Modern web browser with ES2020 support
+
+### Installation
+
+1. **Clone and install dependencies:**
+```bash
+git clone <repository-url>
+cd nexus-ipfs
+npm install
