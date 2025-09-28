@@ -1,0 +1,23 @@
+nexus-ipfs-webinterface/
+├── index.html
+├── package.json
+├── vite.config.js
+├── README.md
+├── .gitignore
+├── css/
+│   ├── style.css
+│   ├── components.css
+│   └── responsive.css
+├── js/
+│   ├── app.js
+│   ├── ipfs-browser.js
+│   ├── ipfs-http.js
+│   ├── components/
+│   │   ├── file-manager.js
+│   │   └── network-monitor.js
+│   └── utils/
+│       ├── helpers.js
+│       └── constants.js
+└── assets/
+    ├── images/
+    └── icons/
