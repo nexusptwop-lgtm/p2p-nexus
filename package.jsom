@@ -1,0 +1,22 @@
+{
+  "name": "nexus-ipfs-webinterface",
+  "version": "1.0.0",
+  "description": "Web interface for IPFS with Nexus P2P integration",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "vite preview --port 3000"
+  },
+  "dependencies": {
+    "ipfs-core": "^0.20.0",
+    "ipfs-http-client": "^60.0.0"
+  },
+  "devDependencies": {
+    "vite": "^4.4.0"
+  },
+  "keywords": ["ipfs", "p2p", "web3", "decentralized"],
+  "author": "Nexus Team",
+  "license": "MIT"
+}
