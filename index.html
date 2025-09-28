@@ -3,478 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P2P Nexus - Decentralized P2P Exchange</title>
-    <meta name="description" content="Secure P2P trading with Web3 technology">
-    
-    <!-- PWA Meta Tags -->
-    <meta name="theme-color" content="#6a11cb">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="P2P Nexus">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            color: #333;
-            min-height: 100vh;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 100%;
-            margin: 0 auto;
-        }
-        
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            flex-wrap: wrap;
-        }
-        
-        h1 {
-            font-size: 2.2rem;
-            color: #6a11cb;
-            margin-bottom: 5px;
-        }
-        
-        .tagline {
-            color: #2575fc;
-            font-weight: 500;
-            font-size: 1.1rem;
-        }
-        
-        .wallet-status {
-            background: #f8f9fa;
-            padding: 10px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            border: 1px solid #e9ecef;
-            text-align: center;
-            margin-top: 10px;
-            width: 100%;
-        }
-        
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn {
-            background: #6a11cb;
-            color: white;
-            border: none;
-            padding: 14px 25px;
-            border-radius: 50px;
-            font-size: 1rem;
-            cursor: pointer;
-            margin: 8px 8px 8px 0;
-            transition: all 0.3s ease;
-            display: inline-block;
-            font-weight: 600;
-        }
-        
-        .btn:hover {
-            background: #5a0db5;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
-        }
-        
-        .btn-secondary {
-            background: #2575fc;
-        }
-        
-        .btn-secondary:hover {
-            background: #1c68e0;
-        }
-        
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .feature {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .feature:hover {
-            transform: translateY(-5px);
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-        
-        .network-info {
-            background: #f1f3f4;
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 20px;
-            display: none;
-        }
-        
-        .offer-card {
-            border: 1px solid #e0e0e0;
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 10px;
-            background: white;
-            transition: all 0.3s ease;
-        }
-        
-        .offer-card:hover {
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .warning {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            padding: 15px;
-            border-radius: 5px;
-            color: #856404;
-            margin: 15px 0;
-        }
-        
-        .success {
-            background: #d4edda;
-            border: 1px solid #c3e6cb;
-            padding: 15px;
-            border-radius: 5px;
-            color: #155724;
-            margin: 15px 0;
-        }
-        
-        footer {
-            text-align: center;
-            color: white;
-            margin-top: 30px;
-            opacity: 0.9;
-        }
-        
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            h1 {
-                font-size: 1.8rem;
-            }
-            
-            .btn {
-                width: 100%;
-                margin: 5px 0;
-            }
-        }
-    </style>
+    <title>Nexus P2P - IPFS Interface</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div>
-                <h1>🎯 P2P Nexus</h1>
-                <p class="tagline">Decentralized P2P Exchange</p>
-            </div>
-            <div id="walletStatus" class="wallet-status">
-                <span id="walletInfo">🔴 Not connected</span>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-network-wired"></i>
+                    <h1>Nexus P2P IPFS</h1>
+                </div>
+                <div class="header-controls">
+                    <div class="connection-info">
+                        <span id="connectionStatus" class="status-offline">
+                            <i class="fas fa-circle"></i> Offline
+                        </span>
+                        <div class="node-info">
+                            <span id="nodeIdShort">Node: Connecting...</span>
+                            <span id="peerCount">Peers: 0</span>
+                        </div>
+                    </div>
+                    <div class="mode-switcher">
+                        <button id="switchToBrowser" class="mode-btn active">
+                            <i class="fas fa-desktop"></i> Browser Node
+                        </button>
+                        <button id="switchToHttp" class="mode-btn">
+                            <i class="fas fa-server"></i> HTTP Client
+                        </button>
+                    </div>
+                </div>
             </div>
         </header>
-        
-        <div class="card">
-            <h2>Welcome to P2P Nexus</h2>
-            <p>Secure, decentralized peer-to-peer trading powered by Web3 technology.</p>
-            
-            <button id="connectWallet" class="btn">Connect Wallet</button>
-            <button id="showDemo" class="btn btn-secondary">View Demo Offers</button>
-            
-            <div id="networkInfo" class="network-info">
-                <p><strong>Network:</strong> <span id="networkName">Unknown</span></p>
-                <p><strong>Chain ID:</strong> <span id="chainId">-</span></p>
-                <p><strong>Account:</strong> <span id="fullAddress">-</span></p>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Left Sidebar -->
+            <aside class="sidebar">
+                <section class="upload-section">
+                    <h2><i class="fas fa-cloud-upload-alt"></i> Upload Files</h2>
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-icon">
+                            <i class="fas fa-file-upload"></i>
+                        </div>
+                        <p>Drag & drop files here or click to browse</p>
+                        <input type="file" id="fileInput" multiple class="file-input">
+                        <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
+                            Select Files
+                        </button>
+                    </div>
+                    
+                    <div class="upload-progress" id="uploadProgress" style="display: none;">
+                        <div class="progress-header">
+                            <span>Uploading...</span>
+                            <span id="progressPercent">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="network-section">
+                    <h2><i class="fas fa-chart-bar"></i> Network Stats</h2>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <label>Peers Connected</label>
+                            <span id="statPeers" class="stat-value">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <label>Bandwidth In</label>
+                            <span id="statBandwidthIn" class="stat-value">0 B/s</span>
+                        </div>
+                        <div class="stat-item">
+                            <label>Bandwidth Out</label>
+                            <span id="statBandwidthOut" class="stat-value">0 B/s</span>
+                        </div>
+                        <div class="stat-item">
+                            <label>Total Files</label>
+                            <span id="statTotalFiles" class="stat-value">0</span>
+                        </div>
+                    </div>
+                </section>
+            </aside>
+
+            <!-- Center Content -->
+            <section class="content-area">
+                <div class="content-header">
+                    <h2><i class="fas fa-files"></i> My Files</h2>
+                    <div class="content-actions">
+                        <button id="refreshFiles" class="btn btn-outline">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                        <div class="search-box">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="fileSearch" placeholder="Search files...">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="files-container">
+                    <div id="filesList" class="files-list">
+                        <div class="empty-state">
+                            <i class="fas fa-inbox"></i>
+                            <h3>No files uploaded yet</h3>
+                            <p>Upload your first file to get started with IPFS</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Sidebar -->
+            <aside class="details-sidebar">
+                <section class="details-section">
+                    <h2><i class="fas fa-info-circle"></i> File Details</h2>
+                    <div id="fileDetails" class="file-details">
+                        <div class="details-placeholder">
+                            <i class="fas fa-file-alt"></i>
+                            <p>Select a file to view details</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="quick-actions">
+                    <h2><i class="fas fa-bolt"></i> Quick Actions</h2>
+                    <div class="action-buttons">
+                        <button id="pinSelected" class="btn btn-action" disabled>
+                            <i class="fas fa-thumbtack"></i> Pin File
+                        </button>
+                        <button id="shareSelected" class="btn btn-action" disabled>
+                            <i class="fas fa-share"></i> Share CID
+                        </button>
+                        <button id="downloadSelected" class="btn btn-action" disabled>
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    </div>
+                </section>
+            </aside>
+        </main>
+
+        <!-- Notifications -->
+        <div id="notifications" class="notifications-container"></div>
+
+        <!-- Modal -->
+        <div id="advancedModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h3 id="modalTitle">Advanced Actions</h3>
+                <div id="modalContent"></div>
             </div>
         </div>
-        
-        <div class="features">
-            <div class="feature">
-                <div class="feature-icon">🔒</div>
-                <h3>Secure Escrow</h3>
-                <p>Smart contracts ensure safe trading</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🌐</div>
-                <h3>Web3 Native</h3>
-                <p>Built on blockchain technology</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">💎</div>
-                <h3>NFT Reputation</h3>
-                <p>Build verifiable on-chain reputation</p>
-            </div>
-        </div>
-        
-        <div id="demoSection" class="card">
-            <h2>Active Offers</h2>
-            <div id="offersList">
-                <p>Click "View Demo Offers" to load trading opportunities...</p>
-            </div>
-        </div>
-        
-        <footer>
-            <p>Powered by Web3 Technology • P2P Nexus v1.0</p>
-        </footer>
     </div>
 
-    <script>
-        // P2P Nexus - Complete Web3 Integration
-        class P2PNexus {
-            constructor() {
-                this.isConnected = false;
-                this.currentAccount = null;
-                this.currentChainId = null;
-                
-                this.init();
-            }
-
-            init() {
-                console.log("P2P Nexus initialized");
-                this.bindEvents();
-                this.checkWalletConnection();
-            }
-
-            bindEvents() {
-                // Connect Wallet button
-                document.getElementById('connectWallet').addEventListener('click', () => {
-                    this.connectWallet();
-                });
-
-                // Demo Offers button
-                document.getElementById('showDemo').addEventListener('click', () => {
-                    this.showDemoOffers();
-                });
-
-                // Listen to wallet events if available
-                if (typeof window.ethereum !== 'undefined') {
-                    window.ethereum.on('accountsChanged', (accounts) => {
-                        this.handleAccountsChanged(accounts);
-                    });
-
-                    window.ethereum.on('chainChanged', (chainId) => {
-                        this.handleChainChanged(chainId);
-                    });
-                }
-            }
-
-            async connectWallet() {
-                try {
-                    // Check if MetaMask/TrustWallet is installed
-                    if (typeof window.ethereum === 'undefined') {
-                        this.showMessage('Please install MetaMask or TrustWallet to use this dApp!', 'error');
-                        return;
-                    }
-
-                    // Request connection
-                    const accounts = await window.ethereum.request({
-                        method: 'eth_requestAccounts'
-                    });
-
-                    if (accounts.length > 0) {
-                        this.currentAccount = accounts[0];
-                        this.isConnected = true;
-                        
-                        // Get network information
-                        const chainId = await window.ethereum.request({ method: 'eth_chainId' });
-                        this.handleChainChanged(chainId);
-                        
-                        this.updateUI();
-                        this.showMessage('Wallet connected successfully!', 'success');
-                    }
-                } catch (error) {
-                    console.error('Error connecting wallet:', error);
-                    if (error.code === 4001) {
-                        this.showMessage('Please connect your wallet to continue.', 'error');
-                    } else {
-                        this.showMessage('Error: ' + error.message, 'error');
-                    }
-                }
-            }
-
-            async checkWalletConnection() {
-                if (typeof window.ethereum !== 'undefined') {
-                    try {
-                        const accounts = await window.ethereum.request({ method: 'eth_accounts' });
-                        if (accounts.length > 0) {
-                            this.currentAccount = accounts[0];
-                            this.isConnected = true;
-                            
-                            const chainId = await window.ethereum.request({ method: 'eth_chainId' });
-                            this.handleChainChanged(chainId);
-                            
-                            this.updateUI();
-                        }
-                    } catch (error) {
-                        console.error('Error checking wallet connection:', error);
-                    }
-                }
-            }
-
-            handleAccountsChanged(accounts) {
-                if (accounts.length === 0) {
-                    this.isConnected = false;
-                    this.currentAccount = null;
-                    this.showMessage('Wallet disconnected', 'error');
-                } else if (accounts[0] !== this.currentAccount) {
-                    this.currentAccount = accounts[0];
-                    this.showMessage('Account changed', 'success');
-                }
-                this.updateUI();
-            }
-
-            handleChainChanged(chainId) {
-                this.currentChainId = chainId;
-                this.updateNetworkInfo(chainId);
-            }
-
-            updateUI() {
-                const walletInfo = document.getElementById('walletInfo');
-                const connectBtn = document.getElementById('connectWallet');
-                const networkInfo = document.getElementById('networkInfo');
-
-                if (this.isConnected && this.currentAccount) {
-                    const shortAddress = this.currentAccount.substring(0, 6) + '...' + this.currentAccount.substring(38);
-                    walletInfo.textContent = `🟢 Connected: ${shortAddress}`;
-                    walletInfo.style.color = '#28a745';
-                    
-                    connectBtn.textContent = 'Disconnect Wallet';
-                    connectBtn.onclick = () => this.disconnectWallet();
-                    
-                    networkInfo.style.display = 'block';
-                    document.getElementById('fullAddress').textContent = this.currentAccount;
-                } else {
-                    walletInfo.textContent = '🔴 Not connected';
-                    walletInfo.style.color = '#dc3545';
-                    
-                    connectBtn.textContent = 'Connect Wallet';
-                    connectBtn.onclick = () => this.connectWallet();
-                    
-                    networkInfo.style.display = 'none';
-                }
-            }
-
-            updateNetworkInfo(chainId) {
-                const networkName = document.getElementById('networkName');
-                const chainIdElement = document.getElementById('chainId');
-
-                chainIdElement.textContent = chainId;
-
-                const networks = {
-                    '0x1': 'Ethereum Mainnet',
-                    '0x5': 'Goerli Testnet',
-                    '0xaa36a7': 'Sepolia Testnet',
-                    '0x89': 'Polygon Mainnet',
-                    '0x13881': 'Polygon Mumbai',
-                    '0x38': 'BSC Mainnet',
-                    '0x61': 'BSC Testnet'
-                };
-
-                networkName.textContent = networks[chainId] || 'Unknown Network';
-                networkName.style.color = networks[chainId] ? '#28a745' : '#ffc107';
-            }
-
-            disconnectWallet() {
-                this.isConnected = false;
-                this.currentAccount = null;
-                this.currentChainId = null;
-                this.updateUI();
-                this.showMessage('Wallet disconnected', 'error');
-            }
-
-            showDemoOffers() {
-                const offersList = document.getElementById('offersList');
-                
-                if (!this.isConnected) {
-                    offersList.innerHTML = `
-                        <div class="warning">
-                            <p>🔗 Please connect your wallet first to view offers</p>
-                        </div>
-                    `;
-                    return;
-                }
-
-                offersList.innerHTML = `
-                    <div class="offer-card">
-                        <h3>ETH to USDT</h3>
-                        <p><strong>Rate:</strong> 1 ETH = 2500 USDT</p>
-                        <p><strong>Limit:</strong> 0.1 - 5 ETH</p>
-                        <p><strong>Payment:</strong> Bank Transfer</p>
-                        <p><strong>Trader Reputation:</strong> ★★★★☆ (4.2/5)</p>
-                        <button class="btn trade-btn">Start Trade</button>
-                    </div>
-                    <div class="offer-card">
-                        <h3>USDT to ETH</h3>
-                        <p><strong>Rate:</strong> 1 USDT = 0.0004 ETH</p>
-                        <p><strong>Limit:</strong> 100 - 5000 USDT</p>
-                        <p><strong>Payment:</strong> Wise/Revolut</p>
-                        <p><strong>Trader Reputation:</strong> ★★★★★ (4.8/5)</p>
-                        <button class="btn trade-btn">Start Trade</button>
-                    </div>
-                `;
-
-                document.querySelectorAll('.trade-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        const offerTitle = e.target.closest('.offer-card').querySelector('h3').textContent;
-                        this.showMessage(`Trade initiated for: ${offerTitle}`, 'success');
-                    });
-                });
-            }
-            
-            showMessage(message, type) {
-                const messageDiv = document.createElement('div');
-                messageDiv.className = type === 'success' ? 'success' : 'warning';
-                messageDiv.innerHTML = `<p>${type === 'success' ? '✅' : '❌'} ${message}</p>`;
-                messageDiv.style.position = 'fixed';
-                messageDiv.style.top = '20px';
-                messageDiv.style.right = '20px';
-                messageDiv.style.zIndex = '1000';
-                messageDiv.style.maxWidth = '300px';
-                
-                document.body.appendChild(messageDiv);
-                
-                setTimeout(() => {
-                    if (messageDiv.parentNode) {
-                        messageDiv.parentNode.removeChild(messageDiv);
-                    }
-                }, 5000);
-            }
-        }
-
-        // Initialize when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            new P2PNexus();
-        });
-    </script>
+    <script type="module" src="./js/app.js"></script>
 </body>
 </html>
