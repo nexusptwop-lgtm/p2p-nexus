@@ -1,6 +1,7 @@
+// IPFS Configuration
 export const IPFS_CONFIG = {
     BROWSER_NODE: {
-        repo: 'ipfs-nexus-browser',
+        repo: 'p2p-nexus-browser',
         config: {
             Addresses: {
                 Swarm: [
@@ -24,23 +25,86 @@ export const IPFS_CONFIG = {
     }
 };
 
-export const FILE_TYPES = {
-    IMAGE: ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg'],
-    VIDEO: ['mp4', 'webm', 'ogg', 'mov', 'avi'],
-    AUDIO: ['mp3', 'wav', 'ogg', 'm4a'],
-    DOCUMENT: ['pdf', 'doc', 'docx', 'txt', 'md'],
-    CODE: ['js', 'html', 'css', 'py', 'json', 'xml']
+// Blockchain Networks
+export const BLOCKCHAIN_NETWORKS = {
+    1: {
+        name: 'Ethereum Mainnet',
+        chainId: '0x1',
+        rpcUrl: 'https://mainnet.infura.io/v3/YOUR_PROJECT_ID',
+        explorer: 'https://etherscan.io'
+    },
+    5: {
+        name: 'Goerli Testnet',
+        chainId: '0x5',
+        rpcUrl: 'https://goerli.infura.io/v3/YOUR_PROJECT_ID',
+        explorer: 'https://goerli.etherscan.io'
+    },
+    137: {
+        name: 'Polygon Mainnet',
+        chainId: '0x89',
+        rpcUrl: 'https://polygon-rpc.com',
+        explorer: 'https://polygonscan.com'
+    }
 };
 
+// Token Configuration
+export const SUPPORTED_TOKENS = {
+    ETH: {
+        name: 'Ethereum',
+        symbol: 'ETH',
+        decimals: 18,
+        address: '0x0000000000000000000000000000000000000000'
+    },
+    DAI: {
+        name: 'Dai Stablecoin',
+        symbol: 'DAI',
+        decimals: 18,
+        address: '0x6B175474E89094C44Da98b954EedeAC495271d0F'
+    },
+    USDC: {
+        name: 'USD Coin',
+        symbol: 'USDC',
+        decimals: 6,
+        address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48'
+    }
+};
+
+// App Constants
+export const APP_CONSTANTS = {
+    MAX_FILE_SIZE: 100 * 1024 * 1024, // 100MB
+    SUPPORTED_FILE_TYPES: [
+        'image/jpeg',
+        'image/png',
+        'image/gif',
+        'image/webp',
+        'video/mp4',
+        'audio/mpeg',
+        'application/pdf',
+        'text/plain',
+        'application/json'
+    ],
+    CHAT_MAX_MESSAGE_LENGTH: 1000,
+    TRADE_TIMEOUT: 24 * 60 * 60 * 1000 // 24 hours
+};
+
+// Messages
 export const MESSAGES = {
     SUCCESS: {
-        FILE_UPLOADED: 'File successfully uploaded to IPFS',
-        FILE_PINNED: 'File pinned successfully',
-        CID_COPIED: 'CID copied to clipboard'
+        WALLET_CONNECTED: 'Wallet connected successfully',
+        FILE_UPLOADED: 'File uploaded to IPFS successfully',
+        OFFER_CREATED: 'Trade offer created successfully',
+        TRADE_COMPLETED: 'Trade completed successfully'
     },
     ERROR: {
-        NO_NODE: 'IPFS node is not initialized',
-        UPLOAD_FAILED: 'File upload failed',
-        CONNECTION_FAILED: 'Failed to connect to IPFS node'
+        NO_WALLET: 'No Web3 wallet detected',
+        WRONG_NETWORK: 'Please connect to a supported network',
+        TRANSACTION_FAILED: 'Transaction failed',
+        FILE_TOO_LARGE: 'File size exceeds maximum limit',
+        INVALID_FILE_TYPE: 'File type not supported'
+    },
+    INFO: {
+        CONNECTING: 'Connecting to wallet...',
+        PROCESSING: 'Processing transaction...',
+        UPLOADING: 'Uploading file to IPFS...'
     }
 };
